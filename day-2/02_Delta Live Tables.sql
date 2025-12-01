@@ -1,13 +1,14 @@
 -- Databricks notebook source
 -- MAGIC %md
--- MAGIC # Delta Live Tables（DLT）
+-- MAGIC # Lakeflow Spark 宣言型パイプライン （Spark Declarative Pipelines：SDP）
+-- MAGIC (旧称：Delta Live Tables（DLT））
 
 -- COMMAND ----------
 
 -- MAGIC %md
 -- MAGIC ## はじめに
 -- MAGIC
--- MAGIC このラボはノートブック内のセルを順次実行していくようなインタラクティブな形式ではなく、以下の「DLT パイプライン設定と実行」の手順に従って DLT ジョブを構成＆実行します。
+-- MAGIC このラボはノートブック内のセルを順次実行していくようなインタラクティブな形式ではなく、以下の「SDP パイプライン設定と実行」の手順に従って SDP ジョブを構成＆実行します。
 -- MAGIC
 -- MAGIC 利用する ER 図 は以下の通りです。
 
@@ -23,7 +24,7 @@
 
 -- MAGIC %md
 -- MAGIC
--- MAGIC ## DLT パイプライン設定と実行
+-- MAGIC ## SDP パイプライン設定と実行
 -- MAGIC
 -- MAGIC 1. サイドバーの **パイプライン** をクリックします。
 -- MAGIC 1. **パイプラインを作成**をクリックし**ETLパイプライン**を選択します。
