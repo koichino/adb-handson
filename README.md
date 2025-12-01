@@ -48,4 +48,4 @@ Unity Catalog が有効化された Azure Databricks ワークスペースを用
   * https://github.com/gho9o9/adb-handson/blob/main/01_Setup.ipynb
 
 # Next Action:
-ラボ当日を迎えましょう！ラボ受講者は<a href="$./01_Setup">こちらのノートブック</a>からスタートします。
+ラボ当日を迎えましょう！ラボ受講者は<a href="01_Setup.ipynb">こちらのノートブック</a>からスタートします。
