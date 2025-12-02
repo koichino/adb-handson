@@ -1,15 +1,15 @@
 -- Databricks notebook source
 -- MAGIC %md
--- MAGIC # Change Data Capture in DLT
+-- MAGIC # Change Data Capture in SDP
 
 -- COMMAND ----------
 
 -- MAGIC %md
 -- MAGIC ## はじめに
 -- MAGIC
--- MAGIC このラボはノートブック内のセルを順次実行していくようなインタラクティブな形式ではなく、以下の「DLT パイプライン設定と実行」の手順に従って DLT ジョブを構成＆実行します。
+-- MAGIC このラボはノートブック内のセルを順次実行していくようなインタラクティブな形式ではなく、以下の「SDP パイプライン設定と実行」の手順に従って DLT ジョブを構成＆実行します。
 -- MAGIC
--- MAGIC このノートブックでは DLT における CDC ソースからの継続マージロードのサンプルコードを示します。
+-- MAGIC このノートブックでは SDP における CDC ソースからの継続マージロードのサンプルコードを示します。
 -- MAGIC
 -- MAGIC **CDC ソース**
 -- MAGIC | userid | name     | city        | operation | sequenceNum |
