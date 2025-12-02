@@ -35,11 +35,6 @@ Unity Catalog が有効化された Azure Databricks ワークスペースを用
 - クラスタに対する **`CREATE CLUSTER`** （ユーザー管理画面で`Unrestricted cluster creation`にチェック）
 </br><img src="images/readme.3.png" width="600"/>
 
-## Power BI Desktop のインストール
-[Power BI Desktop](https://www.microsoft.com/ja-jp/power-platform/products/power-bi/desktop) を各自の PC にインストールしてください。最新版が望ましいです。
-</br><img src="images/readme.4.png" width="600"/>
-</br><img src="images/readme.5.png" width="600"/>
-
 ## ラボ受講者への案内
 以下の情報を受講者へ案内してください。
 - Databricks ワークスペースの URL
