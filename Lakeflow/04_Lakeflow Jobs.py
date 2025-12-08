@@ -23,14 +23,14 @@
 # MAGIC    1. `タスクを追加`を押下し`ETL パイプライン`を選択
 # MAGIC    1. **タスク名**：`Transform_Data_SDP`
 # MAGIC    1. **パイプライン**：**「02_Lakeflow Spark Declarative Pipelines(SDP)」**のラボで作成した SDP パイプラインを選択
-# MAGIC    1. **依存先** 前のステップで作成した'Ingest_Data'
+# MAGIC    1. **依存先** 前のステップで作成した`Ingest_Data`
 # MAGIC    1. `タスクを作成`を押下
 # MAGIC </br><img src="../images/sdp.11.png" width="600"/>
 # MAGIC 1. 以下の手順で`ETL パイプライン タスク`を設定します。
 # MAGIC    1. `タスクを追加`を押下し`ETL パイプライン`を選択
 # MAGIC    1. **タスク名**：`Transform_Data_CDC`
 # MAGIC    1. **パイプライン**：**「03_Change Data Capture(CDC) in SDP」**のラボで作成した SDP パイプラインを選択
-# MAGIC    1. **依存先** 前のステップで作成した'Transform_Data_SDP'
+# MAGIC    1. **依存先** 前のステップで作成した`Ingest_Data`
 # MAGIC    1. `タスクを作成`を押下
 # MAGIC </br><img src="../images/sdp.12.png" width="600"/>
 # MAGIC 1. 必要に応じて**ジョブ通知**を設定します。
