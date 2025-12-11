@@ -44,17 +44,12 @@
     1. 以下のコマンドを実行しバンドルを初期化
         - コマンド : `databricks bundle init`
         - **Using Workspace profile** : 認証時に作成したプロファイル名 (忘れた場合は、`.databrickscfg`ファイルを参照)
-        - **Templace to use** : default-python
+        - **Templace to use** : default-minimal
         - **project_name** : 任意のプロジェクト名
-        - **Include a job thatn runs a notebook** : yes
-        - **Include an ETL pipeline** : yes
-        - **Include a sample Python package that builds into a wheel file** : no
-        - **Use serverless compute** : yes
-        - **Default catalog** : 本ハンズオンで使用するカタログ名
         - **Use a personal schema for each user working on this project.** : yes
+        - **Initial language for this project:** : sql
     1. 全ての初期化構成が完了すると、以下のようなフォルダー構成でプロジェクトが作成されます。
         </br><img src="../images/dabs.1.png" width="300"/>
-    1. `resources` ディレクトリ配下のYAMLファイル(テンプレートファイルで使用しないため)を削除する。 **※`resources`フォルダ自体は削除しないでください。**
 
 1. 既存のジョブ、パイプラインからバンドル構成ファイルを生成する
     1. ワークスペースの**ジョブとパイプライン**から、作成したジョブとパイプラインのIDをメモする。
@@ -149,7 +144,7 @@
             - スケジュール設定が反映されています。
               </br><img src="../images/dabs.9.png" width="700"/>
     1. バンドル ルートから以下のコマンドを実行しバンドルされたジョブを実行します。
-        1. コマンド : `databricks bundle run --target dev <ジョブ名>` ** ※ <ジョブ名>はYAMLで定義したジョブ名を指定します。**
+        1. コマンド : `databricks bundle run --target dev <ジョブ名>` **※<ジョブ名>はYAMLで定義したジョブ名を指定します。**
           </br><img src="../images/dabs.12.png" width="700"/>
     1. **ジョブとパイプライン**から、ジョブが実行されたことを確認します。
     1. 全ての手順が完了したら以下のコマンドを実行しクリーンアップします。
