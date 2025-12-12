@@ -65,6 +65,9 @@
             </br><img src="../images/dabs.4.png" width="300"/>
 
         - ワークスペースから `include/handson.h`をダウンロードし、解凍後に以下イメージのように、アセットバンドルルートに`include/handson.h.py`となるようにコピーする。(ジョブで実行されるNotebook上から `%run .././include/handson.h` の形でノートブックを外部実行に対応するの操作です。)
+          - **※ワークスペース設定によりダウンロードができない場合は、[GitHub リポジトリ](https://github.com/koichino/adb-handson)からファイルをダウンロードして取得してください。`include/handson.h`の冒頭のセル内で定義された変数（`your_identifier`と`your_schema`）の値を本ハンズオンで使用する値に修正することを忘れないよう注意してください**
+
+
         </br><img src="../images/dabs.11.png" width="700"/>
 
           
