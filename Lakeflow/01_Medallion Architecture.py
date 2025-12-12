@@ -76,8 +76,8 @@ display(df.limit(10))
 # MAGIC %sql
 # MAGIC CREATE OR REPLACE TEMPORARY VIEW 01_raw_orders AS (
 # MAGIC   SELECT *, 
-# MAGIC     current_timestamp() arrival_time, 
-# MAGIC     input_file_name() source_file
+# MAGIC     CURRENT_TIMESTAMP() arrival_time, 
+# MAGIC     CURRENT_USER() AS arrived_by
 # MAGIC   FROM 01_raw_orders_temp
 # MAGIC )
 # MAGIC -- https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.functions.input_file_name.html
