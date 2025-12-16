@@ -58,7 +58,8 @@ display(df.limit(10))
 (spark.readStream # ストリーム Read（増分取り込み）を宣言
     .format("cloudFiles") # Auto Loader の利用を宣言（増分識別の機能有効化）
     .option("cloudFiles.format", "parquet") # 入力データの Foramat
-    .option("cloudFiles.schemaLocation", f"{sample_dataset_path}/checkpoints/orders_raw") # スキーマ推論の有効化
+    .option("cloudFiles.schemaLocation", f"{sample_dataset_path}/schema/orders_raw") # スキーマ推論の有効化
+    .option("checkpointLocation", f"{sample_dataset_path}/checkpoints/orders_raw") #チェックポイントロケーション
     .load(f"{sample_dataset_path}/orders-raw") # 入力データのパス
     .createOrReplaceTempView("01_raw_orders_temp")) # 一時ビューを作成（Bronze にロードする前にメタデータを付与するため）
 
