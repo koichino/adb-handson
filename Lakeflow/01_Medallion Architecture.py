@@ -8,7 +8,7 @@
 # MAGIC
 # MAGIC ## はじめに
 # MAGIC
-# MAGIC このラボは プロビジョニング された汎用クラスタを利用します。
+# MAGIC **※このラボは プロビジョニング された汎用クラスタを利用します。**
 # MAGIC
 # MAGIC 利用する ER 図 は以下の通りです。
 
@@ -131,7 +131,6 @@ display(df.limit(10))
       .option("checkpointLocation", f"{sample_dataset_path}/checkpoints/orders_bronze") # チェックポイント格納先（増分に対する Exactly-Once Ingest 保証のため）
       .outputMode("append") # 読み取った増分データを追記することを指示
 #     .trigger(processingTime='500 milliseconds' # ストリームソースの読み取りとターゲットへの出力を 500 ms ごとに再実行（既定値）
-      .trigger(availableNow=True) #Serverlessの場合明示的な指定が必要
       .table("01_bronze_orders")) # 出力先テーブル
 
 # COMMAND ----------
@@ -262,7 +261,6 @@ load_new_data()
       .option("checkpointLocation", f"{sample_dataset_path}/checkpoints/orders_silver") # チェックポイント格納先（増分に対する Exactly-Once Ingest 保証のため）
       .outputMode("append") # 読み取った増分データを追記することを指示
 #     .trigger(processingTime='500 milliseconds' # ストリームソースの読み取りとターゲットへの出力を 500 ms ごとに再実行（既定値）
-      .trigger(availableNow=True) #Serverlessの場合明示的な指定が必要
       .table("01_silver_orders")) # 出力先テーブル
 
 # COMMAND ----------

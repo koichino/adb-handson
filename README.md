@@ -34,11 +34,6 @@ Unity Catalog が有効化された Azure Databricks ワークスペースを用
 </br><img src="images/readme.2.png" width="600"/>
 - クラスタに対する **`CREATE CLUSTER`** （ユーザー管理画面で`Unrestricted cluster creation`にチェック）
 </br><img src="images/readme.3.png" width="600"/>
-- (サーバーレス環境をご利用の場合)： 以下のコマンドを実行し、ユーザまたはグループに対して ANY FILE への SELECT 権限を付与
-    ```SQL
-    %sql
-    GRANT SELECT ON ANY FILE TO `<user@domain-name>` | `<Group名>`
-    ```
 
 ## ラボ受講者への案内
 以下の情報を受講者へ案内してください。
