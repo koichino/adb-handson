@@ -138,6 +138,10 @@
     1. バンドルをワークスペースにデプロイする
         1. バンドル ルートから Databricks CLI を使用して以下コマンドを実行します。(以下の例では、`databricks.yml`内のtarget=devを指定)
             - コマンド : `databricks bundle deploy --target dev`
+        - トラブルシューティング：
+            - ネットワークポリシーによりエラーが発生する場合以下のコマンドを実行します。
+                - コマンド：`set DATABRICKS_BUNDLE_ENGINE=direct`
+                - 参考：[直接デプロイ エンジンに移行する](https://learn.microsoft.com/ja-jp/azure/databricks/dev-tools/bundles/direct)
     1. デプロイが成功したら、デプロイ結果を確認します。
         1. バンドルからデプロイされたジョブとパイプラインにプレフィックスがついた状態でデプロイされます。(プレフィックスは開発モードの想定動作)
         </br><img src="../images/dabs.8.png" width="700"/>
