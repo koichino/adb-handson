@@ -1,5 +1,13 @@
--- 1. Bronze Table
--- 03_bronze_books
+-- ###########################
+-- ####  1. Bronze Table  ####
+-- ###########################
+-- 元データ "${sample.dataset}/books-cdc" の特徴
+-- マージを行うために必要な以下の情報を持っていることが確認できます。
+-- - 一意キー（book_id） ← スキーマ定義を確認しなければわかりませんがここでは book_id が一意キーであることが前提です
+-- - 時系列を判定するためのシーケンス（row_time）
+-- - キーで示されるレコードに対して行われた操作（row_status）
+
+-- #### 03_bronze_books ####
 CREATE OR REFRESH STREAMING TABLE 03_bronze_books -- ストリーム Read（増分取り込みを宣言）
 COMMENT "The raw books data, ingested from CDC feed" -- コメント
 AS SELECT * FROM 
@@ -8,13 +16,16 @@ AS SELECT * FROM
 format => "json") -- Foramat 指定
 ;
 
---2. Silver Table
--- 03_silver_books
+-- ###########################
+-- ####  2. Silver Table  ####
+-- ###########################
+
+-- ####  03_silver_books ####
 CREATE OR REFRESH STREAMING TABLE 03_silver_books ( -- ストリーミングテーブル定義
   CONSTRAINT valid_book_number EXPECT (book_id IS NOT NULL) ON VIOLATION DROP ROW -- 品質制約定義
 );
 
--- AUTO CDC API を利用した差分適用
+-- AUTO CDC API を利用した差分適用 (既定値: SCD Type1)
 CREATE FLOW books_cdc_flow AS AUTO CDC INTO 03_silver_books -- ターゲットテーブル
 FROM STREAM(03_bronze_books) -- CDF テーブル
 KEYS (book_id) -- 比較キー
@@ -23,8 +34,11 @@ SEQUENCE BY row_time -- トランザクションの順番判定キー
 COLUMNS * EXCEPT (row_status, row_time) -- ターゲットへ出力する列の指定（* EXCEPT で出力しない列指定も可能）
 ;
 
--- 3. Gold Table
--- 03_gold_author_counts_state
+-- ###########################
+-- ####   3. Gold Table   ####
+-- ###########################
+
+-- #### 03_gold_author_counts_state ####
 CREATE MATERIALIZED VIEW 03_gold_author_counts_state -- マテリアライズドビュー（毎回洗い替え）
   COMMENT "Number of books per author" -- コメント
 AS
@@ -34,8 +48,10 @@ AS
   GROUP BY author
 ;
 
--- Option. DLT View
---03_books_sales_tmp
+-- ###########################
+-- #### Option. SDP View  ####
+-- ###########################
+-- #### 03_books_sales_tmp ####
 CREATE VIEW 03_books_sales_tmp  -- 通常ビュー
   AS SELECT b.title, o.quantity
     FROM (
